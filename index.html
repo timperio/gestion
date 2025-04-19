@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Clienti Manutenzione</title>
+    <!-- Google Font Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link al CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gestione Clienti e Manutenzioni</h1>
+
+        <!-- Sezione Aggiunta Cliente -->
+        <section class="input-section card">
+            <h2>Aggiungi Nuovo Cliente</h2>
+            <form id="add-client-form">
+                <div class="form-group">
+                    <label for="client-name">Nome Cliente:</label>
+                    <input type="text" id="client-name" placeholder="Es. Mario Rossi Srl" required>
+                </div>
+                <div class="form-group">
+                    <label for="monthly-price">Prezzo Manutenzione Mensile (€):</label>
+                    <input type="number" id="monthly-price" placeholder="Es. 150.00" step="0.01" min="0" required>
+                </div>
+                <button type="submit" class="btn btn-add">Aggiungi Cliente</button>
+            </form>
+        </section>
+
+        <!-- Sezione Elenco Clienti -->
+        <section class="client-list-section card">
+            <h2>Elenco Clienti</h2>
+            <p>Trascina le righe per riordinare i clienti.</p>
+            <table id="client-table">
+                <thead>
+                    <tr>
+                        <th>Nome Cliente</th>
+                        <th>Prezzo Mensile (€)</th>
+                        <th>Azioni</th>
+                    </tr>
+                </thead>
+                <tbody id="client-list-body">
+                    <!-- Le righe dei clienti verranno inserite qui da JavaScript -->
+                    <!-- Esempio riga (verrà generata dinamicamente):
+                    <tr draggable="true" data-id="uniqueId1">
+                        <td>Nome Esempio Spa</td>
+                        <td>100.00</td>
+                        <td>
+                            <button class="btn btn-edit" data-id="uniqueId1">Modifica</button>
+                            <button class="btn btn-delete" data-id="uniqueId1">Elimina</button>
+                        </td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Sezione Riepilogo -->
+        <section class="summary-section card">
+            <h2>Riepilogo Totali</h2>
+            <div class="summary-totals">
+                <p><strong>Totale Mensile:</strong> <span id="monthly-total">€ 0.00</span></p>
+                <p><strong>Totale Annuale Stimato:</strong> <span id="annual-total">€ 0.00</span></p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modale per la Modifica (nascosta di default) -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content card">
+            <span class="close-button">&times;</span>
+            <h2>Modifica Cliente</h2>
+            <form id="edit-client-form">
+                <input type="hidden" id="edit-client-id">
+                <div class="form-group">
+                    <label for="edit-client-name">Nome Cliente:</label>
+                    <input type="text" id="edit-client-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-monthly-price">Prezzo Manutenzione Mensile (€):</label>
+                    <input type="number" id="edit-monthly-price" step="0.01" min="0" required>
+                </div>
+                <button type="submit" class="btn btn-save">Salva Modifiche</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Link al JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

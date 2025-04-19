@@ -1,0 +1,266 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Variabili Colori */
+:root {
+    --dark-green: #006400; /* Verde Scuro */
+    --aquamarine: #7FFFD4; /* Acqua Marina */
+    --white: #FFFFFF;
+    --light-gray: #f4f4f4;
+    --medium-gray: #cccccc;
+    --dark-gray: #333333;
+    --danger-red: #dc3545;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset Base & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--aquamarine); /* Sfondo generale Acqua Marina */
+    color: var(--dark-gray);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: var(--white); /* Contenitore principale bianco */
+    padding: 0; /* Padding gestito internamente o rimosso per h1 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    overflow: hidden; /* Per contenere l'h1 */
+}
+
+h1 {
+    background-color: var(--dark-green); /* Sfondo Verde Scuro */
+    color: var(--white); /* Testo Bianco */
+    padding: 20px;
+    text-align: center;
+    margin: 0 0 30px 0; /* Rimuove margini laterali, aggiunge sotto */
+}
+
+h2 {
+    color: var(--dark-green); /* Testo Verde Scuro */
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--aquamarine);
+    padding-bottom: 5px;
+}
+
+/* Stile Card per Sezioni */
+.card {
+    background-color: var(--white);
+    padding: 25px;
+    margin-bottom: 20px;
+    /* Se si vuole un bordo/ombra separato per ogni card: */
+    /* border-radius: 5px; */
+    /* box-shadow: 0 2px 4px var(--shadow-color); */
+    /* Se il container ha già sfondo bianco, potremmo non aver bisogno di questo */
+}
+/* Rimuove il margin-bottom dell'ultima card */
+.container > .card:last-child {
+    margin-bottom: 0;
+}
+
+/* Stile Form */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--dark-green);
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--dark-green);
+}
+
+/* Stile Bottoni */
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    color: var(--white);
+    margin-right: 5px; /* Spazio tra bottoni affiancati */
+}
+.btn:active {
+    transform: scale(0.98); /* Leggero effetto pressione */
+}
+
+.btn-add, .btn-save {
+    background-color: var(--dark-green);
+}
+.btn-add:hover, .btn-save:hover {
+    background-color: #004d00; /* Verde più scuro */
+}
+
+.btn-edit {
+    background-color: var(--aquamarine);
+    color: var(--dark-green);
+    border: 1px solid var(--dark-green);
+}
+.btn-edit:hover {
+    background-color: #66CDAA; /* Medium Aquamarine */
+}
+
+.btn-delete {
+    background-color: var(--danger-red);
+}
+.btn-delete:hover {
+    background-color: #c82333; /* Rosso più scuro */
+}
+
+/* Stile Tabella */
+#client-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#client-table th,
+#client-table td {
+    border: 1px solid var(--medium-gray);
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#client-table th {
+    background-color: var(--aquamarine); /* Sfondo header Acqua Marina */
+    color: var(--dark-green); /* Testo header Verde Scuro */
+    font-weight: bold;
+}
+
+#client-table tbody tr:nth-child(even) {
+    background-color: var(--light-gray); /* Righe alternate leggermente grigie */
+}
+
+#client-table tbody tr:hover {
+    background-color: #e0f7f2; /* Leggero sfondo al passaggio del mouse */
+}
+
+#client-table td:last-child {
+    /* text-align: center; */ /* Se vuoi i bottoni centrati */
+    white-space: nowrap; /* Evita che i bottoni vadano a capo */
+}
+
+/* Stile per Drag and Drop */
+#client-list-body tr {
+    cursor: move; /* Indica che le righe sono trascinabili */
+}
+.dragging {
+    opacity: 0.6;
+    background-color: #a8e6cf !important; /* Sfondo evidenziato durante il drag */
+}
+.drag-over {
+     border-top: 2px dashed var(--dark-green); /* Indicatore visivo dove verrà droppato */
+}
+
+
+/* Stile Riepilogo */
+.summary-section p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.summary-section span {
+    font-weight: bold;
+    color: var(--dark-green);
+}
+
+/* Stile Modale */
+.modal {
+    display: none; /* Nascosto di default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Sfondo scuro semi-trasparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--dark-gray);
+    text-decoration: none;
+}
+
+/* Responsive (base) */
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 0;
+    }
+    h1 {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+    .card {
+        padding: 15px;
+    }
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    #client-table td:last-child {
+        white-space: normal;
+    }
+    #client-table td .btn {
+        display: block; /* Bottoni uno sotto l'altro su schermi piccoli */
+        width: auto; /* Larghezza auto quando sono block */
+        margin-bottom: 5px;
+    }
+     #client-table th, #client-table td {
+         padding: 8px;
+         font-size: 0.9rem;
+     }
+}
